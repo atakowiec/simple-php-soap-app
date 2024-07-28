@@ -1,0 +1,19 @@
+services:
+  soap:
+    build: ./soap-service
+    ports:
+      - "6002:80"
+    volumes:
+      - ./soap-service/src:/var/www/html
+  rest:
+    build: ./rest-api
+    volumes:
+      - ./rest-api/src:/var/www/html
+    ports:
+      - "6001:80"
+  front:
+    build: ./frontend
+    ports:
+      - "6003:80"
+    volumes:
+      - ./frontend/src:/usr/local/apache2/htdocs
