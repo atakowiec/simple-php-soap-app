@@ -5,6 +5,8 @@ services:
       - "6002:80"
     volumes:
       - ./soap-service/src:/var/www/html
+    environment:
+      - weather_api_key=your_api_key_goes_here
   rest:
     build: ./rest-api
     volumes:
